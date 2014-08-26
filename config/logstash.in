@@ -16,7 +16,7 @@ output {
 		host => "%%ES_BIND_HOST%%"
 		port => "9300"
 		protocol => "node"
-		cluster => "GeekMush" # string
+		cluster => "%%ES_CLUSTER_NAME%%"
 		index => "twitter-%{+YYYY.MM}"
 		index_type => "twitter"
 	}
