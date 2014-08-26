@@ -1,0 +1,23 @@
+input { 
+	twitter {
+		# twitter id
+    		consumer_key => "%%TWITTER_CONSUMER_KEY%%"
+    		consumer_secret => "%%TWITTER_CONSUMER_SECRET%%"
+    		keywords => [ 
+			"panamax", 
+			"docker"
+		]
+    		oauth_token => "%%TWITTER_OAUTH_TOKEN%%"
+    		oauth_token_secret => "%%TWITTER_OAUTH_TOKEN_SECRET%%"
+  	}
+}
+output {
+	elasticsearch {
+		host => "%%ES_BIND_HOST%%"
+		port => "9300"
+		protocol => "node"
+		cluster => "GeekMush" # string
+		index => "twitter-%{+YYYY.MM}"
+		index_type => "twitter"
+	}
+}
